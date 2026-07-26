@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react";
+import SideNav from "./_components/SideNav";
+import TopHeader from "./_components/TopHeader";
 
-const layout = ({children}) => {
+const layout = ({ children }) => {
   return (
-    <div>constant layout
-    {children}
+    <div>
+      <div className="hidden h-full border-r md:w-64 md:flex flex-col fixed inset-y-0 z-50 ">
+        <SideNav/>
+      </div>
+      <div className="md:ml-64">
+      <TopHeader/>
+      {children}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default layout
+export default layout;

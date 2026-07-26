@@ -7,7 +7,7 @@ const Header = () => {
         <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
 
-          <Image src="/logo.svg" alt="Share vault" width={150} height={150} />
+          <Image src="/logo.svg" alt="Share vault" width={150} height={150} className='w-auto h-auto' priority />
 
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
