@@ -10,8 +10,8 @@ export async function POST(req) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "ShareVault@resend.dev",
-      to: [response.emailToSend], // dynamic email
+      from: "onboarding@resend.dev",
+      to: 'humeraofficial2211@gmail.com', // dynamic email
       subject: "ShareVault - File Shared With You",
       react: EmailTemplate({
         firstName: response.userName,
@@ -19,7 +19,7 @@ export async function POST(req) {
         fileSize: response.fileSize,
         fileType: response.fileType,
         shortUrl: response.shortUrl,
-        fileUrl:response.fileUrl
+        fileUrl: response.fileUrl,
       }),
     });
 

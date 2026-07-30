@@ -9,10 +9,10 @@ const FileShareForm = ({ file, onPasswordSave }) => {
   const {user}=useUser();
 
   const sendEmail = () => {
-     if (!email) {
-       alert("Please enter an email address");
-       return;
-     }
+    //  if (!email) {
+    //    alert("Please enter an email address");
+    //    return;
+    //  }
     const data = {
       emailToSend: email,
       userName:user?.fullName,

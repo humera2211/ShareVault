@@ -56,7 +56,7 @@ export function EmailTemplate({
             </Section>
 
             <Button
-              href={fileUrl}
+              href={shortUrl}
               className="bg-blue-600 text-white px-6 py-3 rounded-lg"
             >
               Download File
@@ -66,7 +66,7 @@ export function EmailTemplate({
               If the button doesn't work, copy this link:
             </Text>
 
-            <Text>{fileUrl}</Text>
+            <Text>{shortUrl}</Text>
           </Container>
         </Body>
       </Tailwind>
