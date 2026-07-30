@@ -8,12 +8,15 @@ import { getFirestore } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { useUser } from "@clerk/nextjs";
 import { generateRandomString } from "@/app/_utils/GenerateRandomString";
+import { useRouter } from "next/navigation";
 
 const Upload = () => {
   const [progress, setProgress] = useState(0);
   // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app);
   const { user } = useUser(); //hook of clerk
+
+  const router=useRouter();
 
   const uploadFile = async (file) => {
     if (!file) {
@@ -74,6 +77,7 @@ const Upload = () => {
     await setDoc(doc(db, "uploadedFile", docId), data);
 
     console.log("Saved");
+    router.push('/file-preview/'+docId);
     }catch(err)
     {
       console.log(err);
