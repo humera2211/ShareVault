@@ -1,7 +1,11 @@
 import { Download } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const FileItem = ({file}) => {
+  const [password,setPassword]=useState('');
+
+  console.log("File URL:",file.fileUrl);
   return (
     <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8 border">
       {/* Heading */}
@@ -14,7 +18,12 @@ const FileItem = ({file}) => {
 
       {/* File Icon */}
       <div className="flex justify-center mt-10">
-        <Image src="/downloadFile.gif" alt="file download" width={150} height={150}/>
+        <Image
+          src="/downloadFile.gif"
+          alt="file download"
+          width={150}
+          height={150}
+        />
       </div>
 
       {/* File Details */}
@@ -30,14 +39,26 @@ const FileItem = ({file}) => {
 
       {/* Password */}
 
-      <input
-        type="password"
-        placeholder="Enter password to access"
-        className="w-full mt-8 border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
-      />
+      {file.password?.length > 0 ? (
+        <input
+          type="password"
+          placeholder="Enter password to access"
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full mt-8 border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      ) : null}
 
       {/* Download Button */}
-      <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full py-4 flex justify-center items-center gap-2 transition">
+      <button
+        disabled={file.password && file.password !== password}
+        onClick={() => window.open(file?.fileUrl)}
+        className={`w-full mt-8 rounded-full py-4 flex justify-center items-center gap-2 transition
+${
+  file.password && file.password !== password
+    ? "bg-gray-400 cursor-not-allowed"
+    : "bg-blue-600 hover:bg-blue-700 text-white"
+}`}
+      >
         <Download size={22} />
         Download
       </button>

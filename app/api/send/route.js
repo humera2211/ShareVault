@@ -1,35 +1,58 @@
 import { EmailTemplate } from "../../_components/email-template";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from "nodemailer";
+import { render } from "@react-email/render";
+import QRCode from "qrcode";
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 export async function POST(req) {
   const response = await req.json();
 
-  console.log(response);
+  if (!response.emailToSend) {
+    return Response.json(
+      { error: "Recipient email is required" },
+      { status: 400 },
+    );
+  }
 
   try {
-    const { data, error } = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: 'humeraofficial2211@gmail.com', // dynamic email
-      subject: "ShareVault - File Shared With You",
-      react: EmailTemplate({
+    const qrCode = await QRCode.toBuffer(response.shortUrl);
+
+    const emailHtml = await render(
+      EmailTemplate({
         firstName: response.userName,
         fileName: response.fileName,
         fileSize: response.fileSize,
         fileType: response.fileType,
         shortUrl: response.shortUrl,
         fileUrl: response.fileUrl,
+        qrCode:"cid:qrcode",
       }),
-    });
+    );
 
-    if (error) {
-      return Response.json({ error }, { status: 500 });
-    }
+
+    const data = await transporter.sendMail({
+      from: `"ShareVault" <${process.env.EMAIL_USER}>`,
+      to: response.emailToSend,
+      subject: "ShareVault - File Shared With You",
+      html: emailHtml,
+      attachments: [
+        {
+          filename: "qrcode.png",
+          content: qrCode,
+          cid: "qrcode",
+        },
+      ],
+    });
 
     return Response.json(data);
   } catch (error) {
     console.log(error);
-    return Response.json({ error }, { status: 500 });
+    return Response.json({ error: error.message }, { status: 500 });
   }
 }

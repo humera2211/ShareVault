@@ -23,8 +23,8 @@ const SideNav = () => {
 
   return (
     <div>
-      <div className="p-5 border-b-2">
-        <Image src="/logo.svg" alt="secure vault" height={120} width={150} className="w-auto h-auto" priority />
+      <div className="p-3 border-b-2">
+        <Image src="/logo.svg" alt="share vault" height={50} width={50} className="w-auto h-auto" priority />
       </div>
       <div className="flex flex-col float-left mt-4 w-full ">
         {menuList.map((item, key) => (

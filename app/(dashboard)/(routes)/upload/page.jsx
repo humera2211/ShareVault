@@ -4,7 +4,7 @@ import UploadForm from "./_components/UploadForm";
 import { useState } from "react";
 import axios from "axios";
 import { app } from "@/firebaseConfig";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, Timestamp } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { useUser } from "@clerk/nextjs";
 import { generateRandomString } from "@/app/_utils/GenerateRandomString";
@@ -42,6 +42,13 @@ const Upload = () => {
 
       const data = res.data;
 
+
+console.log("Complete Cloudinary Response:", data);
+console.log("Resource Type:", data.resource_type);
+console.log("Public ID:", data.public_id);
+console.log("Format:", data.format);
+
+
       if (data.secure_url) {
         console.log("Upload Successful");
         console.log(data.secure_url);
@@ -70,7 +77,8 @@ const Upload = () => {
       userName: user?.fullName,
       password: "",
       id: docId,
-      shortUrl: process.env.NEXT_PUBLIC_BASE_URL +"f/" + docId,
+      shortUrl: process.env.NEXT_PUBLIC_BASE_URL + "f/" + docId,
+      expiresAt: Timestamp.fromMillis(Date.now() + 24 * 60 * 60 * 1000),
     };
 
     // Add a new document in collection "uploadedFile" with ID 'docId'

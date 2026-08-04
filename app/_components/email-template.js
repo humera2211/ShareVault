@@ -10,6 +10,7 @@ import {
   Section,
   Tailwind,
   Text,
+  Img
 } from "@react-email/components";
 
 export function EmailTemplate({
@@ -18,7 +19,8 @@ export function EmailTemplate({
   fileSize,
   fileType,
   shortUrl,
-  fileUrl
+  fileUrl,
+  qrCode
 }) {
   return (
     <Html>
@@ -62,9 +64,17 @@ export function EmailTemplate({
               Download File
             </Button>
 
-            <Text className="mt-8 text-gray-500 text-sm">
-              If the button doesn't work, copy this link:
-            </Text>
+            {/* QR code  */}
+            <div className="text-center my-6 ">
+              <Img src={qrCode} alt="QR Code" width="180" height="180" className="mx-auto " />
+              <Text style={{ color: "#666", fontSize: "14px" }}>
+                Scan this QR code to open the download page.
+              </Text>
+
+              <Text className="mt-8 text-gray-500 text-sm">
+                If the button doesn't work, copy this link:
+              </Text>
+            </div>
 
             <Text>{shortUrl}</Text>
           </Container>

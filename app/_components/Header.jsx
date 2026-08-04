@@ -7,14 +7,14 @@ const Header = () => {
         <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
 
-          <Image src="/logo.svg" alt="Share vault" width={150} height={150} className='w-auto h-auto' priority />
+          <Image src="/logo.svg" alt="Share vault" width={50} height={50} className='w-auto h-auto' priority />
 
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-blue-500 font-semibold"
-                    href="#"
+                    href="/"
                   >
                     {" "}
                     Home{" "}
@@ -23,7 +23,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-blue-500 font-semibold"
-                    href="#"
+                    href="/upload"
                   >
                     {" "}
                     Upload{" "}
@@ -32,7 +32,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-blue-500 font-semibold"
-                    href="#"
+                    href="/"
                   >
                     {" "}
                     Contact Us{" "}
@@ -46,13 +46,13 @@ const Header = () => {
               <div className="sm:flex sm:gap-4">
                 <a
                   className="block rounded-md bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
-                  href="#"
+                  href="/sign-in"
                 >
                   Login
                 </a>
                 <a
                   className="hidden rounded-md bg-gray-200 px-5 py-2.5 text-sm font-medium text-blue-600 transition hover:text-blue-600/75 sm:block"
-                  href="#"
+                  href="/sign-up"
                 >
                   Register
                 </a>
