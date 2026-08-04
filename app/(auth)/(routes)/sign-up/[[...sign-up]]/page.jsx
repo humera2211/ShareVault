@@ -16,17 +16,17 @@ export default function SignUpPage() {
 
           <div className="mt-10 space-y-5">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🔒</span>
+              <span className="text-2xl"></span>
               <p>Secure Authentication</p>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-2xl">📂</span>
+              <span className="text-2xl"></span>
               <p>Upload & Share Files Easily</p>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-2xl">⚡</span>
+              <span className="text-2xl"></span>
               <p>Fast, Reliable & Cloud Powered</p>
             </div>
           </div>
@@ -40,3 +40,7 @@ export default function SignUpPage() {
     </div>
   );
 }
+
+
+
+
