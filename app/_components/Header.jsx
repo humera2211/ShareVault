@@ -1,22 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LockKeyhole } from "lucide-react";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   return (
-    <header className="bg-white border-b">
+    <header className="bg-zinc-800 border-b border-gray-900">
       <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <Image
-              src="/logo.svg"
-              alt="Share Vault"
-              width={50}
-              height={50}
-              className="w-auto h-auto"
-              priority
-            />
+            <div className="flex justify-center items-center">
+              <LockKeyhole className="mr-2 text-[#F3F1EA]" />
+              <h1 className="text-[#C9A227] text-3xl font-bold">
+                Share{" "}
+                <span className="text-3xl text-[#F3F1EA] font-bold">Vault</span>
+              </h1>
+            </div>
           </Link>
 
           {/* Navigation */}
@@ -25,7 +25,7 @@ const Header = () => {
               <li>
                 <Link
                   href="/"
-                  className="font-semibold text-gray-500 hover:text-blue-500"
+                  className="font-semibold text-[#F3F1EA] hover:text-[#C9A227]"
                 >
                   Home
                 </Link>
@@ -34,7 +34,7 @@ const Header = () => {
               <li>
                 <Link
                   href="/upload"
-                  className="font-semibold text-gray-500 hover:text-blue-500"
+                  className="font-semibold text-[#F3F1EA] hover:text-[#C9A227]"
                 >
                   Upload
                 </Link>
@@ -42,8 +42,17 @@ const Header = () => {
 
               <li>
                 <Link
-                  href="/"
-                  className="font-semibold text-gray-500 hover:text-blue-500"
+                  href="/files"
+                  className="font-semibold text-[#F3F1EA] hover:text-[#C9A227]"
+                >
+                  Files
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/upload"
+                  className="font-semibold text-[#F3F1EA] hover:text-[#C9A227]"
                 >
                   Contact Us
                 </Link>
@@ -77,7 +86,7 @@ const Header = () => {
             </SignedIn>
 
             {/* Mobile Menu */}
-            <button className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 md:hidden">
+            <button className="block rounded-sm  p-2.5 text-white md:hidden">
               <span className="sr-only">Toggle menu</span>
 
               <svg
@@ -95,6 +104,7 @@ const Header = () => {
                 />
               </svg>
             </button>
+            
           </div>
         </div>
       </div>

@@ -1,35 +1,52 @@
-import React from 'react'
+import React from "react";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div>
-      <section className="bg-white lg:grid lg:h-screen lg:place-content-center">
-        <div className="mx-auto w-full px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28 lg:-mt-16">
-          <div className="mx-auto max-w-prose text-center">
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-              <strong className="text-indigo-600">Upload , save </strong>
-              and
-              <strong className="text-indigo-600"> share</strong> your files in
-              one place
-            </h1>
-            <p className="mt-7 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
-              Drag and drop your files directly on our cloud and share it with
-              your friends securely with password and send it on email.
-            </p>
-            <div className="mt-4 flex justify-center gap-4 sm:mt-6">
-              <a
-                className="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700"
-                href="/upload"
-              >
-                Get Started
-              </a>
-              
-            </div>
+    <section className="min-h-[90vh] bg-[#14161A] text-[#F3F1EA]">
+      <div className="max-w-7xl mx-auto px-8 py-20 grid lg:grid-cols-2 gap-16 items-center">
+        {/* Left Content */}
+        <div>
+          <h1 className="font-bold text-5xl lg:text-7xl leading-tight tracking-tight">
+            Upload,
+            <br />
+            Save &
+            <br />
+            <span className="text-[#C9A227]">Share Files</span>
+            <br />
+            Securely.
+          </h1>
+
+          <p className="mt-8 text-lg text-gray-400 max-w-lg leading-8">
+            Drag and drop your files directly into your private vault, protect
+            them with passwords, and securely share them with anyone using a
+            simple link or email.
+          </p>
+        </div>
+
+        {/* Right Illustration */}
+        <div className="relative flex items-center justify-center w-[420px] h-[420px]">
+          {/* Outer Ring */}
+          <div className="absolute w-full h-full rounded-full border border-[#2C313B] " />
+
+          {/* Middle Ring */}
+          <div className="absolute w-[340px] h-[340px] rounded-full border border-[#2C313B] " />
+
+          {/* Tick Marks */}
+          <div className="absolute w-[380px] h-[380px] rounded-full border border-dashed border-[#3A4048] animate-[spin_45s_linear_infinite_reverse]" />
+
+          {/* Center Safe */}
+          <div className="relative w-44 h-44 rounded-full bg-[#1B1F26] border border-[#2C313B] flex items-center justify-center shadow-2xl animate-[spin_45s_linear_infinite]">
+            {/* Needle */}
+            <div className="absolute w-1 h-16 bg-[#C9A227] rounded-full -translate-y-8 origin-bottom animate-pulse" />
+
+            {/* Center */}
+            <div className="w-8 h-8 rounded-full bg-[#C9A227]" />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
-}
+};
 
-export default Hero
+export default Hero;

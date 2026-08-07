@@ -40,7 +40,7 @@ const FileView = ({params}) => {
      };
 
  return (
-   <div className="bg-gray-100 h-screen w-full flex justify-center items-center flex-col gap-4">
+   <div className="bg-[#14161A] h-screen w-full flex justify-center items-center flex-col gap-4">
      {expired ? (
        <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
          <h1 className="text-3xl font-bold text-red-600">Link Expired</h1>

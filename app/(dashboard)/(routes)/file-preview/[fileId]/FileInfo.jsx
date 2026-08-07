@@ -4,7 +4,7 @@ const FileInfo = ({ file }) => {
   const isImage = file.fileType.startsWith("image/");
 
   return (
-    <div className="border rounded-2xl shadow-sm p-8 bg-white">
+    <div className=" rounded-2xl shadow-sm p-8 bg-zinc-600">
       {isImage ? (
         <Image
           src={file.fileUrl}
@@ -23,11 +23,11 @@ const FileInfo = ({ file }) => {
         />
       )}
 
-      <h2 className="text-2xl font-semibold text-center mt-8 break-all">
+      <h2 className="text-xl text-black font-semibold text-center mt-8 break-all">
         {file.fileName}
       </h2>
 
-      <p className="text-gray-500 text-center mt-2">
+      <p className="text-zinc-900 text-center mt-2">
         {file.fileType} / {(file.fileSize / 1024).toFixed(2)} KB
       </p>
     </div>

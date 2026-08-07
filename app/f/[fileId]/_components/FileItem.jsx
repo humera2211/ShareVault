@@ -7,11 +7,11 @@ const FileItem = ({file}) => {
 
   console.log("File URL:",file.fileUrl);
   return (
-    <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8 border">
+    <div className="max-w-md mx-auto bg-zinc-800 rounded-2xl shadow-lg p-8">
       {/* Heading */}
       <h2 className="text-3xl font-bold text-center">
-        <span className="text-blue-600">ShareVault</span>{" "}
-        <span className="text-gray-800">Shared the file with You</span>
+        <span className="text-yellow-600">ShareVault</span>{" "}
+        <span className="text-white">Shared the file with You</span>
       </h2>
 
       <p className="text-center text-gray-500 mt-3">Find file details below</p>
@@ -23,11 +23,12 @@ const FileItem = ({file}) => {
           alt="file download"
           width={150}
           height={150}
+          className="rounded-lg"
         />
       </div>
 
       {/* File Details */}
-      <div className="mt-10 text-center text-xl font-semibold text-gray-700 space-y-2">
+      <div className="mt-10 text-center text-xl font-semibold text-white space-y-2">
         <p>
           <span>{file.fileName}</span>
         </p>
@@ -56,16 +57,13 @@ const FileItem = ({file}) => {
 ${
   file.password && file.password !== password
     ? "bg-gray-400 cursor-not-allowed"
-    : "bg-blue-600 hover:bg-blue-700 text-white"
+    : "bg-yellow-600 hover:bg-yellow-700 text-black"
 }`}
       >
         <Download size={22} />
         Download
       </button>
 
-      <p className="text-center text-gray-400 text-sm mt-3">
-        *Terms and Conditions apply
-      </p>
     </div>
   );
 };

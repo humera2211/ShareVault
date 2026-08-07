@@ -55,12 +55,12 @@ const FileShareForm = ({ file, onPasswordSave }) => {
           <input
             readOnly
             value={file.shortUrl}
-            className="border rounded-xl  w-full py-3 px-4 pr-14"
+            className="border rounded-xl text-black w-full py-3 px-4 pr-14"
           />
 
           <button
             onClick={copyToClipboard}
-            className="absolute right-4 top-1/2 -translate-y-1/2"
+            className="absolute text-black right-4 top-1/2 -translate-y-1/2"
           >
             <Copy size={22} className="hover:text-gray-700" />
           </button>
@@ -68,7 +68,7 @@ const FileShareForm = ({ file, onPasswordSave }) => {
       </div>
 
       <div className="flex items-center gap-3">
-        <label className="flex gap-2 items-center">
+        <label className="flex gap-2 text-black  items-center">
           <input
             type="checkbox"
             checked={enablePassword}
@@ -87,13 +87,13 @@ const FileShareForm = ({ file, onPasswordSave }) => {
             <input
               type="password"
               placeholder="Password"
-              className="border rounded-xl flex-1 p-3"
+              className="border rounded-xl text-black flex-1 p-3"
               onChange={(e) => setPassword(e.target.value)}
             />
 
             <button
               onClick={() => onPasswordSave(password)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-xl transition"
+              className="bg-[#C9A227] hover:bg-yellow-500 text-black px-6 rounded-xl transition"
             >
               Save
             </button>
@@ -108,12 +108,12 @@ const FileShareForm = ({ file, onPasswordSave }) => {
           type="email"
           placeholder="example@gmail.com"
           onChange={(e) => setEmail(e.target.value)}
-          className="border rounded-lg w-full p-3 mt-2"
+          className="border rounded-lg text-black w-full p-3 mt-2"
         />
 
         <button
           onClick={sendEmail}
-          className="w-full bg-blue-600 hover:bg-blue-700 transition text-white rounded-xl py-3 mt-4"
+          className="w-full bg-[#C9A227] hover:bg-yellow-500 transition text-black rounded-xl py-3 mt-4"
         >
           Send Email
         </button>

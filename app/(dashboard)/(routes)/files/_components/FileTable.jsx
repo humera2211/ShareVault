@@ -5,18 +5,18 @@ import Link from "next/link";
 const FileTable = ({ files }) => {
   return (
     <table className="w-full border-collapse">
-      <thead className="bg-gray-100">
+      <thead className="bg-zinc-600">
         <tr>
-          <th className="text-left p-3">File Name</th>
-          <th className="text-left p-3">Type</th>
-          <th className="text-left p-3">Size</th>
-          <th className="text-left p-3">Action</th>
+          <th className="text-left p-3 ">File Name</th>
+          <th className="text-left p-3 ">Type</th>
+          <th className="text-left p-3 ">Size</th>
+          <th className="text-left p-3 ">Action</th>
         </tr>
       </thead>
 
       <tbody>
         {files.map((file) => (
-          <tr key={file.id} className="border-b hover:bg-gray-50">
+          <tr key={file.id} className="border-b hover:bg-zinc-700">
             <td className="p-3">{file.fileName}</td>
 
             <td className="p-3">{file.fileType}</td>
@@ -28,7 +28,7 @@ const FileTable = ({ files }) => {
             <td className="p-3">
               <Link
                 href={`/file-preview/${file.id}`}
-                className="text-blue-600 hover:underline"
+                className="text-yellow-500 hover:underline"
               >
                 View
               </Link>

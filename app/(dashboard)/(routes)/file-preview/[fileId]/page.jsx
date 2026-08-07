@@ -45,7 +45,7 @@ const FilePreview = ({params}) => {
     <div className="max-w-7xl mx-auto p-8">
       <Link
         href="/upload"
-        className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6 transition"
+        className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 mb-6 transition"
       >
         {" "}
         <ArrowLeftSquare size={22} /> Go to Uploads

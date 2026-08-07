@@ -45,7 +45,7 @@ const Files = () => {
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-6">My Files</h1>
 
-      <div className="border rounded-xl p-4 mb-6">
+      <div className="border border-[#C9A227] rounded-xl p-4 mb-6">
         <h2 className="text-xl">
           Total Files : <span className="font-bold">{files.length}</span>
         </h2>
