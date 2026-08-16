@@ -5,25 +5,24 @@ import { useState } from "react";
 
 const FileShareForm = ({ file, onPasswordSave }) => {
   const [password, setPassword] = useState("");
-  const [enablePassword,setEnablePassword]=useState(false);
-  const [email,setEmail]=useState("");
-  const {user}=useUser();
+  const [enablePassword, setEnablePassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const { user } = useUser();
 
   const sendEmail = () => {
-     if (!email) {
-       alert("Please enter an email address");
-       return;
-     }
+    if (!email) {
+      alert("Please enter an email address");
+      return;
+    }
     const data = {
       emailToSend: email,
-      userName:user?.fullName,
+      userName: user?.fullName,
       fileName: file.fileName,
       fileSize: file.fileSize,
       fileType: file.fileType,
       shortUrl: file.shortUrl,
-      fileUrl:file.fileUrl 
+      fileUrl: file.fileUrl,
     };
-
 
     SendEmail(data)
       .then((resp) => {
@@ -92,7 +91,10 @@ const FileShareForm = ({ file, onPasswordSave }) => {
             />
 
             <button
-              onClick={() => onPasswordSave(password)}
+              onClick={() => {
+                onPasswordSave(password);
+                alert("password saved");
+              }}
               className="bg-[#C9A227] hover:bg-yellow-500 text-black px-6 rounded-xl transition"
             >
               Save
